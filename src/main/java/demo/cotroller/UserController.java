@@ -2,7 +2,10 @@ package demo.cotroller;
 
 import demo.entity.User;
 import demo.service.UserService;
+import demo.utils.LogUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,6 +30,12 @@ public class UserController {
     public Object selectUser(){
         User user = new User();
         user.setName("xiaohong");
+        LogUtils.info("打印入参：{}",user);
+        return userService.selectUserByName(user);
+    }
+
+    @RequestMapping("demo/User/getUser")
+    public Object getUser(@RequestBody User user){
         return userService.selectUserByName(user);
     }
 }

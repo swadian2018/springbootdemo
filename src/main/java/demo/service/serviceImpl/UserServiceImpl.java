@@ -1,5 +1,6 @@
 package demo.service.serviceImpl;
 
+import com.github.pagehelper.PageHelper;
 import demo.entity.User;
 import demo.mapper.UserMapper;
 import demo.service.UserService;
@@ -21,7 +22,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> selectUserByName(User user) {
-        return userMapper.selectUserByName(user);
+        PageHelper.startPage(1,2);
+        List<User> users = userMapper.selectUserByName(user);
+        return users;
     }
 
 }
