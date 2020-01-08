@@ -31,6 +31,7 @@ public class UserController {
         User user = new User();
         user.setName("xiaohong");
         LogUtils.info("打印入参：{}",user);
+        System.out.println("新增一行进行演示...");
         return userService.selectUserByName(user);
     }
 
