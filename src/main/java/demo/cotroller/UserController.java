@@ -31,6 +31,8 @@ public class UserController {
         User user = new User();
         user.setName("xiaohong");
         LogUtils.info("打印入参：{}",user);
+        LogUtils.info("打印入参：this is the second");
+        LogUtils.info("打印入参：this is the third");
         return userService.selectUserByName(user);
     }
 
